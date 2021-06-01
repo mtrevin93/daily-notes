@@ -35,12 +35,33 @@ notes.push(noteAboutToday)
     // -------------------------`)
 // }
 // 
+// Search Term Function
+// const searchTerm = "Team Spirit"
 
-const searchTerm = "Team Spirit"
-
-for (const note of notes) {
-    if (note.feeling === searchTerm) {
-        const searchDate = note.date
-        console.log(`${searchTerm} found on ${searchDate}`)
-    }
+// for (const note of notes) {
+//     if (note.feeling === searchTerm) {
+//         const searchDate = note.date
+//         console.log(`I felt ${searchTerm} on ${searchDate}`)
+//     }
+// }
+const newID = () => {
+    numberOfItems = notes.length -1
+    lastNote = notes[numberOfItems]
+    lastNoteID = lastNote.id
+    newNoteID = lastNoteID + 1
+    return newNoteID
 }
+
+const createNewNote = (noteSubject, noteFeeling, noteTimeSpent) => {
+    let newNote = {
+    id: newID(),
+    subject: noteSubject,
+    date: Date.now(),
+    feeling: noteFeeling,
+    timeSpent: noteTimeSpent
+    }
+notes.push(newNote)
+}
+
+const todaysNote = createNewNote("JS Functions","Happy",300)
+console.log(notes)
