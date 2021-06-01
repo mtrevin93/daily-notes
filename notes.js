@@ -53,10 +53,13 @@ const newID = () => {
 }
 
 const createNewNote = (noteSubject, noteFeeling, noteTimeSpent) => {
+    currentDate = new Date()
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"];
     let newNote = {
     id: newID(),
     subject: noteSubject,
-    date: Date.now(),
+    date: `${monthNames[currentDate.getMonth()]} ${currentDate.getDate()},${currentDate.getFullYear()}`,
     feeling: noteFeeling,
     timeSpent: noteTimeSpent
     }
